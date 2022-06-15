@@ -1,0 +1,15 @@
+{
+  "name": "adt/neo4j-wvv-webapp",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Konstantin",
+      "email": "konstantin.scheiner@student.fhws.de"
+    }
+  ],
+  "require": {
+    "laudis/neo4j-php-client": "^2.6"
+  }
+}
