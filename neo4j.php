@@ -12,7 +12,7 @@ WHERE startStop.name starts with "Busba"
         AND at.departure_time < "08:30:00"
         AND dt.stop_sequence < at.stop_sequence
 WITH dt, at LIMIT 1
-MATCH times= allshortestpaths((dt)-[*]->(at))
+MATCH times = allshortestpaths((dt)-[*]->(at))
 WITH nodes(times) as to
 UNWIND to as t
 MATCH (t)--(s:Stop)
@@ -24,6 +24,6 @@ foreach($result as $r) {
     /** @var Node $node */
     $node = $r->get('t');
     $stop = $r->get('s');
-    echo $node->getProperty("arrival_time") ;
+    echo $node->getProperty("arrival_time");
     echo $stop->getProperty("name"). " " . $stop->getProperty("lat") . " " . $stop->getProperty("lon") . "<br>";
 }
