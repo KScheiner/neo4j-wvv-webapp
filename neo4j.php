@@ -9,7 +9,7 @@ $result = $client->run('MATCH (startStop:Stop)<-[*]-(dt:Stoptime)-[*]->(t:Trip)<
 WHERE startStop.name starts with "Busba"
     AND endStop.name starts with "Fachhoch"
         AND dt.departure_time > "07:00:00"
-        AND at.departure_time < "08:30:00"
+        AND at.departure_time < "09:00:00"
         AND dt.stop_sequence < at.stop_sequence
 WITH dt, at LIMIT 1
 MATCH times = allshortestpaths((dt)-[*]->(at))
