@@ -25,13 +25,11 @@
 
 <hr>
 <h3>Ausgabe</h3>
-<ul>
-    <li>ausgabewerte</li>
-    <li>ausgabewerte1</li>
-    <li>ausgabewerte2</li>
-    <li>ausgabewerte3</li>
-    <li>ausgabewerte4</li>
-</ul>
+
+<?php
+include ("neo4j.php")?>
+
+
 
 
 <hr>
