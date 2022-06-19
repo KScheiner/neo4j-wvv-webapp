@@ -15,13 +15,17 @@
     <h3>Fahrplan</h3>
 
     <p>
-        <label for="Route">Wähle eine Route:</label>
+        <label for="Route">Wähle einen Routentyp:</label>
         <select id="Route" name="Route">
             <option value="direct">direkt</option>
             <option value="indirect">indirekt</option>
 
         </select>
     <br><br>
+        <label for="Route">Wähle eine Abfahrtszeit:</label>
+        <input type="time" id="depart_Time" name="depart_Time">
+
+        <br><br>
 
         <input type="text" placeholder="Start" id="startStop" name="startStop">
         <input type="text" placeholder="Ziel" id="endStop" name="endStop">

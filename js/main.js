@@ -40,10 +40,10 @@ function onSearch() {
 
 
     console.log(start + " " + stop);
-    if(route.value = 'direct')
-    xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop, true);
+    if(route.value =='direct')
+        xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop, true);
 
-    if(route.value = 'indirect')
+    if(route.value == 'indirect')
         xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop, true);
 
     xhttp.send();
