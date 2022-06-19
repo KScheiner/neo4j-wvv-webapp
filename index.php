@@ -12,9 +12,17 @@
 
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Neo4j-logo_color.png" style = "height: 80px;width: 200px">
 
-    <h3> description</h3>
+    <h3>Fahrplan</h3>
 
     <p>
+        <label for="Route">Wähle eine Route:</label>
+        <select id="Route" name="Route">
+            <option value="direct">direkt</option>
+            <option value="indirect">indirekt</option>
+
+        </select>
+    <br><br>
+
         <input type="text" placeholder="Start" id="startStop" name="startStop">
         <input type="text" placeholder="Ziel" id="endStop" name="endStop">
         <input type="button" onclick="onSearch()" value="Suche">
@@ -27,12 +35,11 @@
     </p>
 
     <hr>
-    <h3>Ausgabe</h3>
+    <h3>Haltestellen</h3>
     <div id="detailRoute"></div>
 
 
-    <hr>
-<h3>Mapbox Demo</h3>
+<h3>Karte</h3>
 <!--The div element for the map -->
 <div id="map" style="width: 900px; height: 450px;border-radius: 20px"></div>
 <script src="js/main.js"></script>
