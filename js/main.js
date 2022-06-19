@@ -36,7 +36,15 @@ function onSearch() {
     };
     let start = document.getElementById('startStop').value;
     let stop = document.getElementById('endStop').value;
+    let route = document.getElementById('Route').value;
+
+
     console.log(start + " " + stop);
+    if(route.value = 'direct')
     xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop, true);
+
+    if(route.value = 'indirect')
+        xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop, true);
+
     xhttp.send();
 }
