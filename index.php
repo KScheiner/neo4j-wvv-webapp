@@ -28,9 +28,7 @@
 
     <hr>
     <h3>Ausgabe</h3>
-
-    <?php
-include ("neo4j.php")?>
+    <div id="detailRoute"></div>
 
 
     <hr>

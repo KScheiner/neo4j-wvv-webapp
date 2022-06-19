@@ -6,18 +6,31 @@ const map = new mapboxgl.Map({
     zoom: 12 // starting zoom
 });
 
+let globalMarkers = [];
+
 function onSearch() {
+    globalMarkers.forEach(element => {
+        element.remove();
+    });
+    let container = document.getElementById('detailRoute');
+    container.innerHTML = "";
     console.log("Search");
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             let result = JSON.parse(this.responseText).result;
             result.forEach(element => {
-                console.log(element.s.properties);
-                new mapboxgl.Marker()
+                console.log(element);
+                let marker = new mapboxgl.Marker()
                     .setLngLat([element.s.properties.lon, element.s.properties.lat])
                     .addTo(map);
-
+                globalMarkers.push(marker);
+                let stopEntry = document.createElement("span");
+                let br = document.createElement("br");
+                stopEntry.innerText = element.t.properties.departure_time + " " + element.s.properties.name
+                let container = document.getElementById('detailRoute');
+                container.appendChild(stopEntry);
+                container.appendChild(br);
             })
         }
     };
