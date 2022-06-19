@@ -19,8 +19,8 @@ function onSearch() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            console.log(this.responseText);
             let result = JSON.parse(this.responseText).result;
+            console.log(result);
             result.forEach(element => {
                 //console.log(element);
                 let marker = new mapboxgl.Marker()
@@ -29,7 +29,7 @@ function onSearch() {
                 globalMarkers.push(marker);
                 let stopEntry = document.createElement("span");
                 let br = document.createElement("br");
-                stopEntry.innerText = element.t.properties.departure_time + " " + element.s.properties.name
+                stopEntry.innerText = element.r.properties.short_name + ": " + element.t.properties.departure_time + " " + element.s.properties.name
                 let container = document.getElementById('detailRoute');
                 container.appendChild(stopEntry);
                 container.appendChild(br);

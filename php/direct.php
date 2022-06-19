@@ -7,19 +7,20 @@ $start = $_GET['startStop'];
 $stop = $_GET['endStop'];
 $depTime = $_GET['depTime'];
 
-$client = ClientBuilder::create()->withDriver('default', 'bolt://neo4j:p9dn!N@81.169.193.56')->build();
-$result = $client->run('MATCH (startStop:Stop)<-[*]-(dt:Stoptime)-[*]->(t:Trip)<-[*]-(at:Stoptime)-[*]->(endStop:Stop)
-WHERE startStop.name starts with "' . $start . '"
-    AND endStop.name starts with "' . $stop . '"
+$client = ClientBuilder::create()->withDriver('bolt', 'bolt://neo4j:p9dn!N@81.169.193.56')->build();
+$searchString = 'MATCH (startStop:Stop)<-[:LOCATED_AT]-(dt:Stoptime)-[*]->(trip:Trip)<-[*]-(at:Stoptime)-[:LOCATED_AT]->(endStop:Stop)
+WHERE toLower(startStop.name) contains toLower("' . $start . '") 
+    AND toLower(endStop.name) contains toLower("' . $stop . '")
         AND dt.departure_time > "' . $depTime . ':00"
         AND dt.stop_sequence < at.stop_sequence
-WITH dt, at LIMIT 1
-MATCH times= allshortestpaths((dt)-[*]->(at))
-WITH nodes(times) as to
+WITH * ORDER BY dt.departure_time LIMIT 5
+MATCH times = allshortestpaths((dt)-[*..30]->(at))
+WITH *, nodes(times) as to
 UNWIND to as t
 MATCH (t)--(s:Stop)
-Match (t)--(r:Trip)
-MATCH (r)--(q:Route)
-RETURN t, s, r, q');
+MATCH (trip)--(r:Route)
+RETURN DISTINCT t, s, trip, r';
+
+$result = $client->run($searchString);
 
 echo json_encode($result);
