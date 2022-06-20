@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-
+<!--
     <style>
     .backround{
         height: 100vh;
@@ -20,11 +20,11 @@
 
 
     </style>
-
+-->
 </head>
 
 
-<body class="background">
+<body style="background-color: aliceblue">
 
 
 
@@ -66,8 +66,19 @@
 
 
     <hr>
-    <h3 style="text-align: center " >Haltestellen</h3>
-    <div id="detailRoute"></div>
+<!--
+    <form action="php/direct.php" method="get">
+
+
+        <div >
+            <label for="text"> <h3 style="text-align: center " >Haltestellen</h3></label>
+            <textarea id="detailRoute" name="detailRoute" cols="50" rows="20"></textarea>
+
+        </div>
+    </form>
+-->
+<h3 style="text-align: center " >Haltestellen</h3>
+<div id="detailRoute" style="height: auto; margin-left: auto; margin-right: auto; width: 15em"></div>
 
 <hr>
 <h3  style="text-align: center " >Karte</h3>

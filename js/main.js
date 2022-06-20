@@ -8,7 +8,7 @@ const map = new mapboxgl.Map({
 
 let globalMarkers = [];
 
-function onSearch() {
+function  onSearch() {
     globalMarkers.forEach(element => {
         element.remove();
     });
