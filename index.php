@@ -14,26 +14,22 @@
             font-family: "roboto", sans-serif;
         }
         hr {
-            margin: 35px;
+            margin: 45px;
+        }
+        input, select, option {
+            font-size: 20px;
         }
     </style>
 </head>
-<body style="background-color: white; padding-left: 200px;padding-right: 200px;margin: 0">
+<body style="background-color: white; padding: 0 20%;margin: 0; font-size: 20px">
 <div style="background-color: aliceblue">
 
-<div style=" background-image: url(https://www.wvv.de/media-wvv/mobilitaet/bilder/bus-und-strassenbahn/wvv_elektrobus.jpg);background-repeat: no-repeat; background-size: 1000px; height: 400px; background-size: cover">
-    <img src="https://legalhelper.eu/ccm19/public/logo/5c5986e/bdf04a6/968e274" style="text-align:left; padding-left: 10px; height: 100px; width: 200px">
+<div style=" background-image: url(https://www.wvv.de/media-wvv/mobilitaet/bilder/bus-und-strassenbahn/wvv_elektrobus.jpg);background-repeat: no-repeat; height: 400px; background-size: cover; background-position: center">
+    <img src="https://legalhelper.eu/ccm19/public/logo/5c5986e/bdf04a6/968e274" style="text-align:left; padding-left: 10px; height: 90px; width: 190px">
 
 </div>
 
-    <div style="height: 50px">
-
-    </div>
       <h1 style="text-align: center "><u>Fahrplan</u></h1>
-
-    <div style="height: 50px">
-
-    </div>
 
     <p style="text-align: center">
         <label for="Route">Wähle einen Routentyp:</label>
@@ -57,9 +53,9 @@
     <h2 style="text-align: center;" ><u>Haltestellen</u></h2>
     <div id="detailRoute" style="min-height: 25px;height: auto; margin-left: auto; margin-right: auto; width: 25em; border-color: darkgrey; border-width: 2px; border-style: solid; background-color: ivory"></div>
 <hr>
-    <h2  style="text-align: center " ><u>Karte</u></h2>
+    <h2  style="text-align: center; margin-bottom: 45px" ><u>Karte</u></h2>
     <!--The div element for the map -->
-    <div id="map" style="width: 900px; height: 450px;border-radius: 20px; margin: auto"></div>
+    <div id="map" style="width: 90%; height: 450px;border-radius: 20px; margin: auto"></div>
     <script src="js/main.js"></script>
 </div>
 </body>

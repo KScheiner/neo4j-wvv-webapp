@@ -19,17 +19,20 @@ function  onSearch() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            let result = JSON.parse(this.responseText).result;
+            console.log(this.responseText);
+            let result = JSON.parse(this.responseText);
             console.log(result);
+            result = result.result[0].route;
             result.forEach(element => {
-                //console.log(element);
+                element = element[0].nodes;
+                console.log(element);
                 let marker = new mapboxgl.Marker()
-                    .setLngLat([element.s.properties.lon, element.s.properties.lat])
+                    .setLngLat([element[0].properties.lon, element[0].properties.lat])
                     .addTo(map);
                 globalMarkers.push(marker);
                 let stopEntry = document.createElement("span");
                 let br = document.createElement("br");
-                stopEntry.innerText = element.r.properties.short_name + ": " + element.t.properties.departure_time + " " + element.s.properties.name
+                stopEntry.innerText = element[3].properties.short_name + ": " + element[1].properties.departure_time + " " + element[0].properties.name
                 let container = document.getElementById('detailRoute');
                 container.appendChild(stopEntry);
                 container.appendChild(br);
@@ -49,7 +52,7 @@ function  onSearch() {
     }
 
     if(route.value === 'indirect'){
-        xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop, true);
+        xhttp.open("GET", "../php/indirect.php?startStop=" + start + "&endStop=" + stop + "&depTime=" + departure.value, true);
         xhttp.send();
     }
 
