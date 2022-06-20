@@ -29,7 +29,7 @@
 
 
 <p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Neo4j-logo_color.png" style = "height: 80px;width: 200px;margin 0px auto">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Neo4j-logo_color.png" style = "height: 100px;width: 240px;margin 0px auto">
 
 </p>
 
@@ -39,7 +39,11 @@
     </div>
 
 
-    <h3 style="text-align: center ">Fahrplan</h3>
+    <h1 style="text-align: center "><u>WVV-Fahrplan</u></h1>
+
+<div style="height: 50px">
+
+</div>
 
     <p style="text-align: center">
         <label for="Route">Wähle einen Routentyp:</label>
@@ -59,6 +63,8 @@
         <input type="text" placeholder="Ziel" id="endStop" name="endStop">
         <input type="button" onclick="onSearch()" value="Suche">
     </p>
+<div style="height:25px"></div>
+
 
 
 
@@ -77,11 +83,12 @@
         </div>
     </form>
 -->
-<h3 style="text-align: center " >Haltestellen</h3>
-<div id="detailRoute" style="height: auto; margin-left: auto; margin-right: auto; width: 15em"></div>
-
+<h2 style="text-align: center;" ><u>Haltestellen</u></h2>
+<div id="detailRoute" style="height: auto; margin-left: auto; margin-right: auto; width: 25em; border-color: darkgrey; border-width: 2px; border-style: solid"></div>
+<div style="height:25px"></div>
 <hr>
-<h3  style="text-align: center " >Karte</h3>
+<div style="height:25px"></div>
+<h2  style="text-align: center " ><u>Karte</u></h2>
 <!--The div element for the map -->
 <div id="map" style="width: 900px; height: 450px;border-radius: 20px; margin: auto"></div>
 <script src="js/main.js"></script>
