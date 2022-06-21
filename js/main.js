@@ -6,53 +6,66 @@ const map = new mapboxgl.Map({
     zoom: 12 // starting zoom
 });
 
+map.on('load', function () {
+    map.resize();
+})
+
 let globalMarkers = [];
 
+
 function  onSearch() {
+    // Remove all existing markers from map
     globalMarkers.forEach(element => {
         element.remove();
     });
     globalMarkers = [];
-    let container = document.getElementById('detailRoute');
-    container.innerHTML = "";
-    console.log("Search");
-    var xhttp = new XMLHttpRequest();
+    // Remove all displayed stops from list and show loading spinner
+    let stops = document.getElementsByClassName("stopItem");
+    while(stops.length > 0) {
+        stops[0].parentNode.removeChild(stops[0]);
+    }
+    let spinner = document.getElementById("spinnerContainer");
+    spinner.style.display = "flex";
+
+    const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            console.log(this.responseText);
+            //console.log(this.responseText);
             let result = JSON.parse(this.responseText);
-            console.log(result);
+
+            let spinner = document.getElementById("spinnerContainer");
+            spinner.style.display = "none";
+
             result = result.result[0].route;
             result.forEach(element => {
                 element = element[0].nodes;
-                console.log(element);
+
                 let marker = new mapboxgl.Marker()
                     .setLngLat([element[0].properties.lon, element[0].properties.lat])
                     .addTo(map);
                 globalMarkers.push(marker);
+
                 let stopEntry = document.createElement("span");
-                let br = document.createElement("br");
-                stopEntry.innerText = element[3].properties.short_name + ": " + element[1].properties.departure_time + " " + element[0].properties.name
                 let container = document.getElementById('detailRoute');
+
+                stopEntry.classList.add("stopItem");
+                stopEntry.innerText = element[3].properties.short_name + ": " + element[1].properties.departure_time + " " + element[0].properties.name
                 container.appendChild(stopEntry);
-                container.appendChild(br);
             })
         }
     };
+
     let start = document.getElementById('startStop').value;
     let stop = document.getElementById('endStop').value;
-    let route = document.getElementById('Route');
-    let departure = document.getElementById('departTime');
+    let route = document.getElementById('Route').value;
+    let departure = document.getElementById('departTime').value;
 
-
-    console.log(start + " " + stop);
-    if(route.value === 'direct'){
-        xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop + "&depTime=" + departure.value, true);
+    if(route === 'direct'){
+        xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop + "&depTime=" + departure, true);
         xhttp.send();
     }
-
-    if(route.value === 'indirect'){
-        xhttp.open("GET", "../php/indirect.php?startStop=" + start + "&endStop=" + stop + "&depTime=" + departure.value, true);
+    if(route === 'indirect'){
+        xhttp.open("GET", "../php/indirect.php?startStop=" + start + "&endStop=" + stop + "&depTime=" + departure, true);
         xhttp.send();
     }
 
