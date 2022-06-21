@@ -11,10 +11,6 @@ map.on('load', function () {
 })
 
 let globalMarkers = [];
-let start = document.getElementById('startStop').value;
-let stop = document.getElementById('endStop').value;
-let route = document.getElementById('Route').value;
-let departure = document.getElementById('departTime').value;
 
 
 function  onSearch() {
@@ -58,6 +54,11 @@ function  onSearch() {
             })
         }
     };
+
+    let start = document.getElementById('startStop').value;
+    let stop = document.getElementById('endStop').value;
+    let route = document.getElementById('Route').value;
+    let departure = document.getElementById('departTime').value;
 
     if(route === 'direct'){
         xhttp.open("GET", "../php/direct.php?startStop=" + start + "&endStop=" + stop + "&depTime=" + departure, true);
