@@ -15,7 +15,6 @@
 <div style="background-color: aliceblue; width: 100%;display: flex; flex-direction: column; justify-content: center; align-items: center;">
 
 <div id="backgroundImageContainer">
-    <img id="backgroundImage" src="https://legalhelper.eu/ccm19/public/logo/5c5986e/bdf04a6/968e274">
 </div>
 
     <h1><u>Fahrplan</u></h1>
@@ -37,12 +36,12 @@
 
     <div id="formContainer">
         <div class="form__group field">
-            <input autocomplete="false" type="input" class="form__field" placeholder="Start" name="name" id="startStop" />
-            <label for="name" class="form__label">Start</label>
+            <input autocomplete="false" type="input" class="form__field" name="name" id="startStop" placeholder="Start" />
+            <label class="form__label">Start</label>
         </div>
         <div class="form__group field">
-            <input autocomplete="false" type="input" class="form__field" placeholder="Start" name="name" id="endStop" />
-            <label for="name" class="form__label">Ziel</label>
+            <input autocomplete="false" type="input" class="form__field" name="name" id="endStop" placeholder="Ziel" />
+            <label class="form__label">Ziel</label>
         </div>
         <input id="searchButton" type="button" onclick="onSearch()" value="Suchen">
     </div>
@@ -60,4 +59,9 @@
     <script src="js/main.js"></script>
 </div>
 </body>
+<footer>
+    <span>Diese Seite entstand als studentisches Projekt.</span>
+    <span>Sie entstand weder in Zusammenarbeit mit, noch im Auftrag von der WVV.</span>
+    <span>Quelle Titelbild: <a href="https://magazin.wvv.de/mobilitaet/maximaler-komfort-elektrobusse/">WVV-Magazin</a></span>
+</footer>
 </html>
