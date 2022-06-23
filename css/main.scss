@@ -132,6 +132,7 @@ body {
   padding: 0 20%;
   margin: 0;
   font-size: 20px;
+  flex-direction: column;
 }
 
 #backgroundImageContainer {
@@ -265,4 +266,11 @@ body {
     stroke-dashoffset: 187;
     transform: rotate(450deg);
   }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
 }

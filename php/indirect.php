@@ -29,6 +29,10 @@ UNWIND zeiten2 as z2
 MATCH (r2:Route)--(t2:Trip)--(z2)--(s2:Stop)
 RETURN collect(DISTINCT (s1)--(z1)--(t1)--(r1)) + collect(DISTINCT (s2)--(z2)--(t2)--(r2)) AS route';
 
-$result = $client->run($searchString);
+try {
+    $result = $client->run($searchString);
+} catch (Exception $e) {
+    $result = ["Timeout error" => $e->getMessage()];
+}
 
 echo json_encode($result);
